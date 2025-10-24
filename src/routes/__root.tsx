@@ -1,4 +1,4 @@
-import { CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import { Providers } from '@/components/providers';
@@ -7,7 +7,9 @@ const RootLayout = () => (
   <>
     <Providers>
       <CssBaseline />
-      <Outlet />
+      <Box component="div" sx={{ minHeight: '100svh' }}>
+        <Outlet />
+      </Box>
     </Providers>
     <TanStackRouterDevtools />
   </>
