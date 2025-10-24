@@ -1,5 +1,5 @@
 {
-  "name": "inteliq",
+  "name": "systemekit-chat",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.133.27",
+    "@tanstack/react-router-devtools": "^1.133.27",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.0",
+    "@tanstack/router-plugin": "^1.133.27",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
