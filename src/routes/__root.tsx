@@ -1,18 +1,14 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
+import { CssBaseline } from '@mui/material';
+import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import { Providers } from '@/components/providers';
 
 const RootLayout = () => (
   <>
-    <div className="p-2 flex gap-2">
-      <Link to="/" className="[&.active]:font-bold">
-        Home
-      </Link>{' '}
-      <Link to="/about" className="[&.active]:font-bold">
-        About
-      </Link>
-    </div>
-    <hr />
-    <Outlet />
+    <Providers>
+      <CssBaseline />
+      <Outlet />
+    </Providers>
     <TanStackRouterDevtools />
   </>
 );
