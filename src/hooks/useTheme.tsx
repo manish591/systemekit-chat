@@ -2,15 +2,36 @@ import { createTheme } from '@mui/material';
 
 export function useTheme() {
   const theme = createTheme({
+    spacing: 4,
     typography: {
+      fontSize: 14.5,
       fontFamily: 'Bricolage Grotesque',
+      allVariants: {
+        letterSpacing: '-0.008em',
+      },
+    },
+    components: {
+      MuiIconButton: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
+      MuiButton: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
     },
     palette: {
       background: {
         default: '#F8F9FC',
+        paper: '#FDFDFD',
       },
       primary: {
         main: '#2063FF',
+        contrastText: 'white',
+        '100': 'pink',
+        '200': '#E9EFFF',
       },
       text: {
         primary: '#272727',
