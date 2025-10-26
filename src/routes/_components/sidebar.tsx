@@ -11,10 +11,14 @@ import {
 import { createContext, useContext, useMemo, useState } from 'react';
 import { NavUser } from './nav-user';
 import { GetProAccountLink } from './get-pro-account-link';
+import { SidebarCloseButton } from './sidebar-close-btn';
+import { AppLogo } from './app-logo';
 
 type SidebarState = {
   isOpen: boolean;
   isMobile: boolean;
+  openMobileSidebar: boolean;
+  setOpenMobileSidebar: (val: boolean) => void;
   setIsOpen: (val: boolean) => void;
 };
 
@@ -34,15 +38,18 @@ export function SidebarProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [isOpen, setIsOpen] = useState(true);
-  const isMobile = useMediaQuery('(min-width:600px)');
+  const [openMobileSidebar, setOpenMobileSidebar] = useState(false);
+  const isMobile = useMediaQuery('(min-width:900px)');
 
   const value = useMemo(
     () => ({
       isOpen,
       isMobile,
+      openMobileSidebar,
       setIsOpen,
+      setOpenMobileSidebar,
     }),
-    [isOpen, isMobile],
+    [isOpen, isMobile, openMobileSidebar],
   );
   return (
     <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
@@ -50,21 +57,48 @@ export function SidebarProvider({
 }
 
 export function Sidebar() {
-  const { isMobile, isOpen } = useSidebarContext();
+  const { isMobile, isOpen, openMobileSidebar, setOpenMobileSidebar } =
+    useSidebarContext();
 
   if (!isMobile) {
     return (
-      <Drawer>
+      <Drawer
+        open={openMobileSidebar}
+        onClose={() => {
+          setOpenMobileSidebar(false);
+        }}
+      >
         <Box
+          component="aside"
           sx={(theme) => ({
-            width: '100%',
             height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: theme.spacing(5),
+            width: '260px',
+            flexShrink: 0,
+            overflowX: 'hidden',
+            overflowY: 'auto',
+            position: 'relative',
+            paddingTop: theme.spacing(8),
+            paddingBottom: theme.spacing(2),
+            transition: 'width 300ms ease-in-out',
           })}
         >
-          <SidebarHeader />
+          <Box
+            sx={(theme) => ({
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: theme.spacing(5),
+              opacity: isOpen ? 1 : 0,
+              transition: 'opacity 300ms ease-in-out',
+            })}
+          >
+            <SidebarHeader>
+              <AppLogo />
+            </SidebarHeader>
+            <SidebarContent />
+            <SidebarFooter />
+          </Box>
         </Box>
       </Drawer>
     );
@@ -103,7 +137,10 @@ export function Sidebar() {
             transition: 'opacity 300ms ease-in-out',
           })}
         >
-          <SidebarHeader />
+          <SidebarHeader>
+            <AppLogo />
+            <SidebarCloseButton />
+          </SidebarHeader>
           <SidebarContent />
           <SidebarFooter />
         </Box>
@@ -385,9 +422,7 @@ function SidebarCollapsed() {
   );
 }
 
-function SidebarHeader() {
-  const { setIsOpen, isOpen } = useSidebarContext();
-
+function SidebarHeader({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <Box
       sx={(theme) => ({
@@ -398,42 +433,7 @@ function SidebarHeader() {
         paddingInline: theme.spacing(5),
       })}
     >
-      <Box
-        component="img"
-        src="/logo.svg"
-        alt="logo"
-        sx={(_) => ({
-          width: '32px',
-          height: '32px',
-          flexShrink: 0,
-        })}
-      />
-      <Typography
-        variant="h1"
-        sx={(theme) => ({
-          fontSize: theme.typography.fontSize * 1.75,
-          fontWeight: 800,
-        })}
-      >
-        Inteliq
-      </Typography>
-      <IconButton
-        sx={(_) => ({
-          position: 'absolute',
-          right: 0,
-          width: '20px',
-          height: '20px',
-          padding: 0,
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0,
-          background: '#E9EFFF',
-        })}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
-        <Box component="img" src="/arrow.svg" alt="arrow" />
-      </IconButton>
+      {children}
     </Box>
   );
 }
