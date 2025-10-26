@@ -1,101 +1,350 @@
-import { Button } from "@mui/material";
-import { createFileRoute } from "@tanstack/react-router";
+import {
+  Box,
+  Grid,
+  IconButton,
+  TextareaAutosize,
+  Typography,
+} from '@mui/material';
+import { createFileRoute } from '@tanstack/react-router';
+import { Icon } from '@/components/Icon';
 
 function Index() {
-	return (
-		<div
-			style={{
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "center",
-			}}
-		>
-			<div>
-				<h3
-					style={{
-						fontSize: "4rem",
-					}}
-				>
-					Welcome Home!
-				</h3>
-				<Button variant="contained">Hello world</Button>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias magni
-					a architecto ratione id est non quidem, corrupti omnis consequatur,
-					maiores aliquam unde, facere nesciunt dignissimos nobis porro nulla.
-					Cum! Neque quibusdam consequatur, accusamus consequuntur labore eius
-					nostrum ea itaque quos qui aspernatur placeat pariatur laudantium
-					minima provident error nobis, eos alias? Expedita optio velit
-					praesentium saepe nesciunt, asperiores repellat. Nemo qui, accusamus
-					dolor itaque doloribus magnam deserunt illo. Facere doloribus
-					voluptates officia, assumenda eaque, quae voluptatibus quibusdam
-					vitae, illo consectetur nisi nihil explicabo. Enim quisquam laboriosam
-					ab accusamus praesentium! Possimus atque incidunt optio, nisi in quas
-					perferendis mollitia sint animi voluptates placeat obcaecati.
-					Assumenda odit distinctio obcaecati laudantium modi repellat enim
-					eligendi cupiditate, sint expedita illum, quasi, totam sunt. Officia
-					aliquid dolorum dolores maiores sint. Dolorum ea expedita explicabo
-					adipisci, molestias consectetur culpa ducimus iure. Blanditiis quia
-					iste suscipit sapiente atque minus. Quos sint culpa incidunt rem
-					tenetur delectus! Dolores dolor natus, rerum neque quidem nisi ipsum,
-					facilis itaque distinctio tenetur dolorum reiciendis est nostrum
-					laborum libero repudiandae! Esse, quibusdam! Minus harum sunt
-					accusamus obcaecati hic, commodi natus in! Incidunt, impedit
-					voluptatum aperiam voluptatibus libero quod assumenda totam nostrum
-					quo fugiat porro, repellendus voluptas maxime obcaecati. Cupiditate
-					vel minus laboriosam eaque odit at error, rem alias tempora ipsum
-					nostrum. Dolor recusandae quos omnis amet ab sapiente unde.
-					Consectetur deleniti numquam architecto possimus, inventore harum
-					dolores iure, cumque voluptas repudiandae dolore doloremque voluptatem
-					quibusdam libero in dolorem omnis eveniet eos. Sint odit similique
-					saepe delectus quo dicta, ea debitis neque? Aut, harum officia optio
-					maxime accusantium doloribus corrupti provident magnam itaque quae,
-					neque, nemo vel exercitationem est sint inventore cupiditate? Incidunt
-					vel nesciunt pariatur, voluptates tempore deserunt aut iste veritatis
-					at dignissimos eius doloribus maxime fugit eaque laudantium cupiditate
-					sit accusantium sed hic fuga voluptas obcaecati totam corporis?
-					Repudiandae, necessitatibus? Similique perferendis alias numquam neque
-					excepturi accusamus praesentium iste eos suscipit harum inventore,
-					placeat atque molestias sit quis eaque facere sunt iure ipsam. Velit
-					ducimus nobis, magnam saepe esse illo! Accusantium dolorum quia
-					dolores ex numquam tempore obcaecati tenetur ut illo illum quaerat
-					veritatis nemo doloremque inventore, fugiat omnis, blanditiis sit sed
-					aliquam? Minus harum laborum consequatur id sequi praesentium.
-					Recusandae magni enim tempore commodi, tenetur dignissimos cumque!
-					Quaerat et id cumque explicabo minima quos, itaque, delectus eaque
-					labore velit inventore rem exercitationem nostrum error saepe
-					voluptatibus perspiciatis fugit iure. Accusantium nemo soluta, porro,
-					officiis debitis, nostrum recusandae quia odit beatae impedit ad
-					dolore cupiditate tempora error. Voluptate deserunt alias quibusdam in
-					quia incidunt accusamus commodi officiis! Praesentium, animi
-					doloremque. Qui veritatis exercitationem dignissimos aut distinctio
-					similique! Veritatis facere aliquid qui aspernatur consectetur!
-					Nostrum nobis commodi officia animi! Modi aliquid impedit molestiae et
-					doloremque perferendis labore nihil animi enim est? Perspiciatis
-					blanditiis quibusdam nostrum repudiandae, quia deleniti. Eveniet
-					voluptatibus minima ratione necessitatibus unde, ea reiciendis. Maxime
-					aliquid aspernatur, quam eos vel doloribus mollitia numquam nostrum
-					perspiciatis id alias. Vitae, ea! Assumenda reprehenderit dignissimos
-					rerum quis perferendis, ipsam, quia veritatis molestias ipsum
-					necessitatibus distinctio, ut tempora quo accusamus praesentium
-					temporibus. Iure, officia in porro corporis ipsam veniam quaerat
-					dolore aut incidunt! Quia debitis alias, sapiente, magni perferendis
-					eius nisi assumenda ut praesentium iste quasi minus similique quo
-					officiis blanditiis commodi, unde corrupti? Nisi cupiditate doloremque
-					optio necessitatibus in qui, doloribus labore? Unde alias expedita
-					repudiandae distinctio aspernatur quod omnis suscipit consequuntur
-					velit, odit corporis iusto facilis tempora ullam voluptatibus deleniti
-					hic? Dicta, fugit laborum nemo ipsum et consequuntur accusamus
-					similique quis! Provident quo alias illum aliquam incidunt officia
-					dolorum eum quae minus tenetur cumque ullam asperiores, quisquam,
-					nesciunt sapiente maiores, praesentium numquam hic facilis nam! Omnis
-					facere beatae ex nesciunt perspiciatis.
-				</p>
-			</div>
-		</div>
-	);
+  return (
+    <Box
+      sx={(_) => ({
+        overflow: 'auto',
+        height: '100%',
+        flex: 1,
+        position: 'relative',
+      })}
+    >
+      <Box
+        sx={(theme) => ({
+          paddingTop: theme.spacing(20),
+          paddingBottom: theme.spacing(40),
+          maxWidth: '720px',
+          marginInline: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          height: 'auto',
+        })}
+      >
+        <Box>
+          <Typography
+            sx={(theme) => ({
+              fontWeight: 800,
+              fontSize: theme.typography.fontSize * 1.75,
+              marginLeft: '-6px',
+            })}
+          >
+            👋🏼 Hi Laurence!
+          </Typography>
+          <Typography
+            sx={(theme) => ({
+              fontWeight: 500,
+              fontSize: theme.typography.fontSize * 2.5,
+              marginTop: theme.spacing(5),
+              maxWidth: '50%',
+              lineHeight: 1.2,
+            })}
+          >
+            What do you want to learn today?
+          </Typography>
+        </Box>
+        <Grid
+          container
+          spacing={4}
+          sx={(theme) => ({
+            marginTop: theme.spacing(10),
+          })}
+        >
+          <Grid
+            size={4}
+            sx={(theme) => ({
+              paddingBlock: theme.spacing(5),
+              paddingInline: theme.spacing(4),
+              borderRadius: '16px',
+
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#E9EFFF',
+              position: 'relative',
+              background:
+                'linear-gradient(135deg, #FFDDF8 12%, #F8F9FC 74%, #D9E4FF 94%)',
+            })}
+          >
+            <Box
+              sx={(_) => ({
+                position: 'absolute',
+                inset: '0',
+                width: '100%',
+                height: '100%',
+                background: '#ffffffbb',
+                borderRadius: '16px',
+                filter: 'blur(1px)',
+              })}
+            />
+            <Box
+              sx={(_) => ({
+                zIndex: 10,
+                position: 'relative',
+              })}
+            >
+              <Icon
+                sx={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#E9EFFF',
+                  background: '#FDFDFD',
+                }}
+              >
+                <Box component="img" src="/sparkles.svg" alt="" />
+              </Icon>
+              <Typography
+                sx={(theme) => ({
+                  fontSize: theme.typography.fontSize + 1,
+                  marginTop: theme.spacing(20),
+                })}
+              >
+                Give me a concise summary of this meeting transcript
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid
+            size={4}
+            sx={(theme) => ({
+              paddingBlock: theme.spacing(5),
+              paddingInline: theme.spacing(4),
+              borderRadius: '16px',
+
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#E9EFFF',
+              position: 'relative',
+              background:
+                'linear-gradient(135deg, #FFDDF8 12%, #F8F9FC 74%, #D9E4FF 94%)',
+            })}
+          >
+            <Box
+              sx={(_) => ({
+                position: 'absolute',
+                inset: '0',
+                width: '100%',
+                height: '100%',
+                background: '#ffffffbb',
+                borderRadius: '16px',
+                filter: 'blur(1px)',
+              })}
+            />
+            <Box
+              sx={(_) => ({
+                zIndex: 10,
+                position: 'relative',
+              })}
+            >
+              <Icon
+                sx={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#E9EFFF',
+                  background: '#FDFDFD',
+                }}
+              >
+                <Box component="img" src="/sparkles.svg" alt="" />
+              </Icon>
+              <Typography
+                sx={(theme) => ({
+                  fontSize: theme.typography.fontSize + 1,
+                  marginTop: theme.spacing(20),
+                })}
+              >
+                Write a product description for a minimalist smartwatch
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid
+            size={4}
+            sx={(theme) => ({
+              paddingBlock: theme.spacing(5),
+              paddingInline: theme.spacing(4),
+              borderRadius: '16px',
+
+              borderWidth: 1,
+              borderStyle: 'solid',
+              borderColor: '#E9EFFF',
+              position: 'relative',
+              background:
+                'linear-gradient(135deg, #FFDDF8 12%, #F8F9FC 74%, #D9E4FF 94%)',
+            })}
+          >
+            <Box
+              sx={(_) => ({
+                position: 'absolute',
+                inset: '0',
+                width: '100%',
+                height: '100%',
+                background: '#ffffffbb',
+                borderRadius: '16px',
+                filter: 'blur(1px)',
+              })}
+            />
+            <Box
+              sx={(_) => ({
+                zIndex: 10,
+                position: 'relative',
+              })}
+            >
+              <Icon
+                sx={{
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: '#E9EFFF',
+                  background: '#FDFDFD',
+                }}
+              >
+                <Box component="img" src="/sparkles.svg" alt="" />
+              </Icon>
+              <Typography
+                sx={(theme) => ({
+                  fontSize: theme.typography.fontSize + 1,
+                  marginTop: theme.spacing(20),
+                })}
+              >
+                Provide a polite response to a customer asking for a refund
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+        {/* <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore ad
+          consequatur, excepturi aperiam neque animi et omnis error sequi ex
+          nemo, libero, ipsam mollitia quam consequuntur nesciunt ab nostrum
+          fugiat. Tenetur earum inventore assumenda quos! Cupiditate laudantium
+          labore iste officia molestias sunt provident id pariatur, maxime
+          expedita temporibus saepe possimus? Ad mollitia totam similique maxime
+          modi eius nulla obcaecati unde. Ex, officia, dolorem laboriosam esse
+          voluptatibus praesentium in labore modi, eligendi distinctio excepturi
+          illo nam aliquid doloribus tempore at nobis aperiam perspiciatis
+          magnam! Maiores hic in obcaecati unde assumenda iure. Blanditiis at
+          doloremque reprehenderit in aperiam eaque dolore ratione sequi officia
+          quisquam consequatur asperiores maxime hic quis, minus quo tenetur
+          quos mollitia facilis dignissimos ipsam. Voluptatum unde architecto
+          tempore ab! Fugit pariatur, odit mollitia possimus similique velit
+          esse et voluptate ipsam eius accusamus praesentium! Magnam
+          necessitatibus sequi iure sint nemo magni ipsam odit sed, sit suscipit
+          doloremque! Dolores, saepe sint!
+        </p> */}
+      </Box>
+      <Box
+        sx={(theme) => ({
+          paddingBlock: theme.spacing(3),
+          paddingInline: theme.spacing(2),
+          background: theme.palette.background.paper,
+          borderWidth: 1,
+          borderStyle: 'solid',
+          borderColor: theme.palette.grey[200],
+          boxShadow: '0px 0px 4px #0000001F',
+          marginTop: 'auto',
+          position: 'sticky',
+          left: 0,
+          bottom: 0,
+          width: '100%',
+          zIndex: 20,
+          borderTopLeftRadius: '16px',
+          borderTopRightRadius: '16px',
+          maxWidth: '720px',
+          margin: '0 auto',
+        })}
+      >
+        <TextareaAutosize
+          aria-label="minimum height"
+          minRows={4}
+          maxRows={12}
+          placeholder="Ask me a question..."
+          style={{
+            width: '100%',
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: '#EBEBEB',
+            paddingTop: '10px',
+            paddingBottom: '10px',
+            paddingInline: '14px',
+            borderRadius: '8px',
+            boxShadow: '0px 1px 2px #0A0D120D',
+            fontFamily: 'Bricolage Grotesque',
+          }}
+          onFocus={(e) => {
+            e.target.style.outlineColor = '#2063FF';
+          }}
+        />
+        <Box
+          sx={(theme) => ({
+            display: 'flex',
+            alignItems: 'center',
+            gap: theme.spacing(3),
+            marginTop: theme.spacing(2),
+          })}
+        >
+          <IconButton
+            sx={(_) => ({
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: '#F3F3F3',
+            })}
+          >
+            <Icon>
+              <Box component="img" src="/paper-clip.svg" alt="" />
+            </Icon>
+          </IconButton>
+          <IconButton
+            sx={(_) => ({
+              width: '32px',
+              height: '32px',
+              borderRadius: '50%',
+              background: '#F3F3F3',
+            })}
+          >
+            <Icon>
+              <Box component="img" src="/camera.svg" alt="" />
+            </Icon>
+          </IconButton>
+          <Typography
+            sx={() => ({
+              color: '#ACACAC',
+              fontSize: '12px',
+              marginLeft: 'auto',
+            })}
+          >
+            0/1000
+          </Typography>
+          <IconButton
+            sx={(_) => ({
+              width: '44px',
+              height: '44px',
+              borderRadius: '50%',
+              background: '#E9EFFF',
+            })}
+          >
+            <Icon>
+              <Box component="img" src="/paper-airplane.svg" alt="" />
+            </Icon>
+          </IconButton>
+        </Box>
+      </Box>
+    </Box>
+  );
 }
 
-export const Route = createFileRoute("/")({
-	component: Index,
+export const Route = createFileRoute('/')({
+  component: Index,
 });

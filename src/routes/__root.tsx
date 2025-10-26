@@ -24,6 +24,7 @@ const RootLayout = () => (
             display: 'flex',
             flexDirection: 'row',
             height: '100%',
+            width: '100%',
           })}
         >
           <SidebarProvider>
@@ -34,7 +35,8 @@ const RootLayout = () => (
             sx={(theme) => ({
               paddingTop: theme.spacing(2),
               height: '100%',
-              overflow: 'auto',
+              overflow: 'hidden',
+              width: '100%',
             })}
           >
             <Box
@@ -45,6 +47,8 @@ const RootLayout = () => (
                 height: '100%',
                 background: theme.palette.background.paper,
                 borderTopLeftRadius: theme.spacing(5),
+                display: 'flex',
+                flexDirection: 'column',
               })}
             >
               <Box
