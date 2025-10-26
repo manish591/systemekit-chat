@@ -37,6 +37,9 @@ const RootLayout = () => (
               height: '100%',
               overflow: 'hidden',
               width: '100%',
+              '@media(max-width: 600px)': {
+                paddingTop: 0,
+              },
             })}
           >
             <Box
@@ -49,6 +52,9 @@ const RootLayout = () => (
                 borderTopLeftRadius: theme.spacing(5),
                 display: 'flex',
                 flexDirection: 'column',
+                '@media(max-width: 600px)': {
+                  borderTopLeftRadius: 0,
+                },
               })}
             >
               <Box
@@ -60,9 +66,32 @@ const RootLayout = () => (
                   borderColor: theme.palette.grey[200],
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between',
+                  justifyContent: 'start',
+                  gap: theme.spacing(2),
+                  '@media(max-width: 600px)': {
+                    paddingInline: theme.spacing(3),
+                  },
                 })}
               >
+                <IconButton
+                  sx={(_) => ({
+                    display: 'none',
+                    '@media(max-width: 600px)': {
+                      display: 'block',
+                    },
+                  })}
+                >
+                  <Icon>
+                    <Box
+                      component="img"
+                      src="/menu.svg"
+                      sx={(_) => ({
+                        width: '24px',
+                        height: '24px',
+                      })}
+                    />
+                  </Icon>
+                </IconButton>
                 <Button
                   sx={(theme) => ({
                     borderRadius: '20px',
@@ -107,6 +136,7 @@ const RootLayout = () => (
                     display: 'flex',
                     alignItems: 'center',
                     gap: theme.spacing(3),
+                    marginLeft: 'auto',
                   })}
                 >
                   <Box
@@ -114,6 +144,9 @@ const RootLayout = () => (
                       display: 'flex',
                       alignItems: 'center',
                       gap: theme.spacing(4),
+                      '@media(max-width: 600px)': {
+                        display: 'none',
+                      },
                     })}
                   >
                     <IconButton
